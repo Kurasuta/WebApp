@@ -1,15 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    /*font-family: Consolas, monospace;*/
-    font-family: Arial, Helvetica, sans-serif
-}
 
-a {
-    color: #3b696e;
-    text-decoration: none;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 }
-a:hover {
-    border-bottom: 3px solid black;
-}
-

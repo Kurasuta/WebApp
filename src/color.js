@@ -1,9 +1,4 @@
-const color = {
-    light: '#eeeeee',
-    inactive: '#bfc0c0',
-    link: '#75b9be',
-    highlight: '#daff7d',
-    dark: '#2d3142'
-};
-
-export default color;
+export const green = '#51cf66';
+export const black = '#212529';
+export const white = '#f8f9fa';
+export const lightgray = '#f1f3f5';
