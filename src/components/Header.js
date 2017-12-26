@@ -13,10 +13,10 @@ export default class Header extends React.Component {
       <nav {...style}>
         <Container>
           <Logo/>
-          <NavItem>Home</NavItem>
-          <NavItem>Search</NavItem>
-          <NavItem>About</NavItem>
-          <Search/>
+          <NavItem onClick={this.props.showHome}>Home</NavItem>
+          {/*<NavItem>Search</NavItem>*/}
+          {/*<NavItem>About</NavItem>*/}
+          <Search hitReturn={this.props.search}/>
         </Container>
       </nav>
     );

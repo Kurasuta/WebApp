@@ -12,6 +12,7 @@ css.global('html, body', {
   backgroundColor: white
 });
 
+const VIEW_HOME = 0;
 const VIEW_SAMPLE = 1;
 const VIEW_SECTION = 2;
 const VIEW_LOADING = 3;
@@ -19,15 +20,9 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: VIEW_LOADING,
+      view: VIEW_HOME,
       data: undefined,
     };
-
-    new KurasutaApi()
-      .sample('7cad4e6aacd8cf7a7717233a7bf72848ea161eb947f4d24495a57d7a9669ed8d')
-      .then((response) => {
-        this.setState({view: VIEW_SAMPLE, data: response.data});
-      });
   }
 
   render() {
@@ -61,7 +56,14 @@ export default class App extends React.Component {
     }
     return (
       <div className="App">
-        <Header/>
+        <Header showHome={() => {
+          this.setState({view: VIEW_HOME})
+        }} search={(needle) => {
+          this.setState({view: VIEW_LOADING});
+          kurasutaApi.sample(needle).then((response) => {
+            this.setState({view: VIEW_SAMPLE, data: response.data});
+          });
+        }}/>
         {component}
       </div>
     );

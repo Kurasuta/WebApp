@@ -4,7 +4,7 @@ import Input from "./ui/Input";
 export default class Search extends React.Component {
   render() {
     return (
-      <Input type="text" placeholder="sha256, md5 or sha1"/>
+      <Input hitReturn={this.props.hitReturn} type="text" placeholder="sha256, md5 or sha1"/>
     );
   }
 }
