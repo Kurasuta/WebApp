@@ -7,7 +7,8 @@ import Header from "./components/Header";
 import Loading from "./components/ui/Loading";
 import {css} from "glamor";
 import KurasutaApi from "./KurasutaApi"
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
+import Container from "./components/Container";
 
 css.global('html, body', {
   backgroundColor: white
@@ -58,11 +59,11 @@ export default class App extends React.Component {
         component = <Home showSample={showSample}/>;
     }
     return (
-      <div className="App">
+      <div>
         <Header showHome={() => {
           this.setState({view: VIEW_HOME})
         }} search={showSample}/>
-        {component}
+        <Container>{component}</Container>
         <ToastContainer/>
       </div>
     );

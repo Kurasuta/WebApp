@@ -14,8 +14,6 @@ export default class Header extends React.Component {
         <Container>
           <a onClick={this.props.showHome}{...css({':hover': {cursor: 'pointer'}})}><Logo/></a>
           <NavItem onClick={this.props.showHome}>Home</NavItem>
-          {/*<NavItem>Search</NavItem>*/}
-          {/*<NavItem>About</NavItem>*/}
           <Search return={this.props.search}/>
         </Container>
       </nav>
@@ -25,6 +23,6 @@ export default class Header extends React.Component {
 
 const style = css({
   backgroundColor: black,
-  height: 60,
+  height: 70,
   paddingRight: 25
 });
