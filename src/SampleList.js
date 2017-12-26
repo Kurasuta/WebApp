@@ -6,7 +6,7 @@ import Link from "./components/ui/Link";
 export default class SampleList extends React.Component {
   render() {
     return (
-      <Table headers={{'Hash': 'left'}}>
+      <Table headers={{'Hash': 'left', 'Build Time Stamp': 'left'}}>
         {
           this.props.children.map((sample) => {
             return [
@@ -15,6 +15,7 @@ export default class SampleList extends React.Component {
               }}>
                 <Hash>{sample.hash_sha256}</Hash>
               </Link>,
+              <div>{sample.build_timestamp}</div>
             ]
           })
         }

@@ -10,4 +10,8 @@ export default function KurasutaApi() {
   this.section = function (hash_sha256) {
     return axios.get(baseUrl + 'section/' + hash_sha256);
   };
+
+  this.newestSamples = function() {
+    return axios.get(baseUrl + 'newest_samples');
+  }
 };

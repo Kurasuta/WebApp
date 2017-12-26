@@ -16,7 +16,7 @@ export default class Header extends React.Component {
           <NavItem onClick={this.props.showHome}>Home</NavItem>
           {/*<NavItem>Search</NavItem>*/}
           {/*<NavItem>About</NavItem>*/}
-          <Search hitReturn={this.props.search}/>
+          <Search return={this.props.search}/>
         </Container>
       </nav>
     );
