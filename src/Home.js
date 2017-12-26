@@ -31,7 +31,7 @@ export default class Home extends React.Component {
         are welcome. There is no documentation. We are tired of licences.</p>,
       this.state.newestSamples.length > 0 ? [
         <h2 key="headline2">Newest 10 samples</h2>,
-        <SampleList key="lastSamples">{this.state.newestSamples}</SampleList>
+        <SampleList key="lastSamples" showSample={this.props.showSample}>{this.state.newestSamples}</SampleList>
       ] : null
     ];
   }

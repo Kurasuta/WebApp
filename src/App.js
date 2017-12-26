@@ -23,6 +23,12 @@ export default class App extends React.Component {
   };
 
   render() {
+    const showSample = (sha256) => {
+      this.setState({view: VIEW_LOADING});
+      kurasutaApi.sample(sha256).then((response) => {
+        this.setState({view: VIEW_SAMPLE, data: response.data});
+      });
+    };
     const kurasutaApi = new KurasutaApi();
     let component = null;
     switch (this.state.view) {
@@ -38,29 +44,19 @@ export default class App extends React.Component {
         />;
         break;
       case VIEW_SECTION:
-        component = <SampleList showSample={(sha256) => {
-          this.setState({view: VIEW_LOADING});
-          kurasutaApi.sample(sha256).then((response) => {
-            this.setState({view: VIEW_SAMPLE, data: response.data});
-          });
-        }}>{this.state.data}</SampleList>;
+        component = <SampleList showSample={showSample}>{this.state.data}</SampleList>;
         break;
       case VIEW_LOADING:
         component = <Loading/>;
         break;
       default: // VIEW_HOME
-        component = <Home/>;
+        component = <Home showSample={showSample}/>;
     }
     return (
       <div className="App">
         <Header showHome={() => {
           this.setState({view: VIEW_HOME})
-        }} search={(needle) => {
-          this.setState({view: VIEW_LOADING});
-          kurasutaApi.sample(needle).then((response) => {
-            this.setState({view: VIEW_SAMPLE, data: response.data});
-          });
-        }}/>
+        }} search={showSample}/>
         {component}
       </div>
     );
