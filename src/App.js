@@ -4,9 +4,10 @@ import Sample from "./Sample.js";
 import SampleList from "./SampleList"
 import {white} from "./color.js";
 import Header from "./components/Header";
-import Loading from "./components/Loading";
+import Loading from "./components/ui/Loading";
 import {css} from "glamor";
 import KurasutaApi from "./KurasutaApi"
+import { ToastContainer, toast } from 'react-toastify';
 
 css.global('html, body', {
   backgroundColor: white
@@ -23,13 +24,17 @@ export default class App extends React.Component {
   };
 
   render() {
+    const kurasutaApi = new KurasutaApi();
     const showSample = (sha256) => {
       this.setState({view: VIEW_LOADING});
       kurasutaApi.sample(sha256).then((response) => {
         this.setState({view: VIEW_SAMPLE, data: response.data});
+      }).catch((error) => {
+        toast.error('Hash not found');
+        this.setState({view: VIEW_HOME});
       });
     };
-    const kurasutaApi = new KurasutaApi();
+
     let component = null;
     switch (this.state.view) {
       case VIEW_SAMPLE:
@@ -58,6 +63,7 @@ export default class App extends React.Component {
           this.setState({view: VIEW_HOME})
         }} search={showSample}/>
         {component}
+        <ToastContainer/>
       </div>
     );
   }
