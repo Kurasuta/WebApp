@@ -32,7 +32,7 @@ export default class CrazySection extends React.Component {
   }
 
   render() {
-    return (
+    return this.props.data.length === 0 ? null : (
       <Section title={this.props.title}>
         {this.createDefinitionList(this.props.data)}
       </Section>

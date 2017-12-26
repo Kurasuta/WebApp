@@ -59,9 +59,13 @@ export default class Sample extends React.Component {
           <CrazySection title="General" data={generalData}/>
           <CrazySection title="Debug" data={debugData}/>
           <CrazySection title="Other" data={otherData}/>
-
-          <SectionTable>{this.sample.sections}</SectionTable>
-          <ResourceTable>{this.sample.resources}</ResourceTable>
+          {this.sample.sections ? <h3>Sections</h3> : null}
+          {this.sample.sections ? <SectionTable
+              listBySectionHash={this.props.listBySectionHash}
+            >{this.sample.sections}</SectionTable>
+            : null}
+          {this.sample.resources ? <h3>Resources</h3> : null}
+          {this.sample.resources ? <ResourceTable>{this.sample.resources}</ResourceTable> : null}
         </Container>
       </div>
     );

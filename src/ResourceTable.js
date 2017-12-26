@@ -1,21 +1,24 @@
 import React from "react";
 import Table from "./components/ui/Table";
 import formatEntropy from "./utils";
+import Hash from "./components/ui/Hash";
 
 export default class ResourceTable extends React.Component {
   render() {
     return (
       <Table headers={{
+        'Hash': 'left',
         'Type': 'left',
         'Name': 'left',
         'Language': 'left',
         'Size': 'left',
         'Offset': 'left',
-        'Entropy': 'left'
+        'Entropy': 'left',
       }}>
         {
           this.props.children.map((resource) => {
             return [
+              <Hash>{resource.hash_sha256}</Hash>,
               combineStrAndId(resource.type_str, resource.type_id),
               combineStrAndId(resource.name_str, resource.name_id),
               combineStrAndId(resource.language_str, resource.language_id),
