@@ -2,16 +2,11 @@ import React from "react";
 import {css} from "glamor";
 
 export default class Input extends React.Component {
-  constructor(props) {
-    super(props);
-    this.return = props.return;
-  }
-
   render() {
     return (
       <input onKeyUp={(event) => {
         if (event.keyCode === 13) {
-          if (this.return) this.return(event.target.value);
+          if (this.props.return) this.props.return(event.target.value);
         }
       }} {...style}/>
     );

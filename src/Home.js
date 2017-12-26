@@ -3,9 +3,11 @@ import SampleList from "./SampleList";
 import KurasutaApi from "./KurasutaApi";
 
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {newestSamples: []};
+  state = {
+    newestSamples: []
+  };
+
+  componentDidMount() {
     new KurasutaApi().newestSamples().then((response) => {
       this.setState({newestSamples: response.data});
     })

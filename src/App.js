@@ -17,13 +17,10 @@ const VIEW_SAMPLE = 1;
 const VIEW_SECTION = 2;
 const VIEW_LOADING = 3;
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      view: VIEW_HOME,
-      data: undefined,
-    };
-  }
+  state = {
+    view: VIEW_HOME,
+    data: undefined,
+  };
 
   render() {
     const kurasutaApi = new KurasutaApi();
