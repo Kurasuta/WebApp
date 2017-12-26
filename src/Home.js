@@ -32,6 +32,11 @@ export default class Home extends React.Component {
         <p>All the <a href="https://github.com/Kurasuta">code running Kurasuta is available on github</a>.
           Contributions are welcome. There is no documentation. We are tired of licences.
         </p>
+        <h2>Examples</h2>
+        <ul>
+          <li>4c532831a492614f3b7e85966a6cf45c9bcc19c33bd66ccde978f0ebfccacc7b .text section occurs in 3 different
+            samples that all have the same build time stamp.</li>
+        </ul>
         <h2>Newest 10 samples</h2>
         {this.state.newestSamples.length === 0 ? <Loading/>
           : <SampleList showSample={this.props.showSample}>{this.state.newestSamples}</SampleList>
