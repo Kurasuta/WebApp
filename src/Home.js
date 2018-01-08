@@ -16,7 +16,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <p>Try to say the English word "Cluster" with a strong Japanese accent.</p>
         <p>The core/first use-case of this project is straight forward: hash sections of as many PE files as
           possible and make pivoting possible. This website is a first client consuming a REST-like API to the Kurasuta
@@ -41,7 +41,7 @@ export default class Home extends React.Component {
         {this.state.newestSamples.length === 0 ? <Loading/>
           : <SampleList showSample={this.props.showSample}>{this.state.newestSamples}</SampleList>
         }
-      </div>
+      </React.Fragment>
     );
   }
 }
