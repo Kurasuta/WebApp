@@ -1,11 +1,11 @@
 import React from "react";
-import SampleList from "./SampleList";
-import KurasutaApi from "./KurasutaApi";
-import Loading from "./components/ui/Loading";
+//import SampleList from "./SampleList";
+import KurasutaApi from "../KurasutaApi";
+import Loading from "../components/ui/Loading";
 
 export default class Home extends React.Component {
   state = {
-    newestSamples: []
+    newestSamples: null
   };
 
   componentDidMount() {
@@ -38,8 +38,8 @@ export default class Home extends React.Component {
           </li>
         </ul>
         <h2>Newest 10 samples</h2>
-        {this.state.newestSamples.length === 0 ? <Loading/>
-          : <SampleList showSample={this.props.showSample}>{this.state.newestSamples}</SampleList>
+        {!this.state.newestSamples ? <Loading/>
+          : null
         }
       </React.Fragment>
     );

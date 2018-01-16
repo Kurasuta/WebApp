@@ -1,14 +1,40 @@
 import React from "react";
-import CrazySection from "./CrazySection";
-import SectionTable from "./SectionTable";
-import ResourceTable from "./ResourceTable";
-import formatEntropy from "./utils";
-import Container from "./components/Container";
-import Hash from "./components/ui/Hash";
+import CrazySection from "../CrazySection";
+import SectionTable from "../SectionTable";
+import ResourceTable from "../ResourceTable";
+import formatEntropy from "../utils";
+import Container from "../components/Container";
+import Hash from "../components/ui/Hash";
+import Loading from "../components/ui/Loading";
+import File from "../components/SectionFile/File";
+import KurasutaApi from "../KurasutaApi";
+import {toast} from "react-toastify";
 
 export default class Sample extends React.Component {
+
+  state = {
+    sample: null
+  };
+
+  componentDidMount() {
+    const sha256 = this.props.match.params.hash;
+
+    const kurasutaApi = new KurasutaApi();
+    kurasutaApi.sample(sha256).then(response => {
+      this.setState({sample: response.data});
+    }).catch(error => {
+      toast.error('Hash not found');
+      this.props.history.replace('/');
+    });
+  }
+
   render() {
-    const sample = this.props.sample;
+
+    if (!this.state.sample) {
+      return <Loading/>
+    }
+
+    const sample = this.state.sample;
 
     const removeEmpty = (row) => {
       return !!row['definition'];
@@ -54,6 +80,11 @@ export default class Sample extends React.Component {
     return (
       <div style={style}>
         <Container>
+
+          <File sample={sample}/>
+
+
+
           <CrazySection title="General" data={generalData}/>
           <CrazySection title="Debug" data={debugData}/>
           <CrazySection title="Other" data={otherData}/>

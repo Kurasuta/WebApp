@@ -20,9 +20,9 @@ export default class SectionTable extends React.Component {
         {
           this.props.children.map((section) => {
             return [
-              <Link onClick={() => {
-                this.props.listBySectionHash(section.hash_sha256);
-              }}><Hash>{section.hash_sha256}</Hash></Link>,
+              <Link to={'/section/' + section.hash_sha256}>
+                <Hash>{section.hash_sha256}</Hash>
+              </Link>,
               section.name,
               formatEntropy(section.entropy),
               section.virtual_address,

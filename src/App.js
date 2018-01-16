@@ -1,71 +1,32 @@
 import React from "react";
-import Home from "./Home"
-import Sample from "./Sample.js";
-import SampleList from "./SampleList"
+import Home from "./pages/Home"
+import Sample from "./pages/Sample.js";
+import Section from "./pages/Section"
 import {white} from "./color.js";
 import Header from "./components/Header";
-import Loading from "./components/ui/Loading";
 import {css} from "glamor";
-import KurasutaApi from "./KurasutaApi"
-import {ToastContainer, toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import Container from "./components/Container";
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 css.global('html, body', {
   backgroundColor: white
 });
 
-const VIEW_HOME = 0;
-const VIEW_SAMPLE = 1;
-const VIEW_SECTION = 2;
-const VIEW_LOADING = 3;
 export default class App extends React.Component {
-  state = {
-    view: VIEW_HOME,
-    data: undefined,
-  };
-
   render() {
-    const kurasutaApi = new KurasutaApi();
-    const showSample = (sha256) => {
-      this.setState({view: VIEW_LOADING});
-      kurasutaApi.sample(sha256).then((response) => {
-        this.setState({view: VIEW_SAMPLE, data: response.data});
-      }).catch((error) => {
-        toast.error('Hash not found');
-        this.setState({view: VIEW_HOME});
-      });
-    };
-
-    let component = null;
-    switch (this.state.view) {
-      case VIEW_SAMPLE:
-        component = <Sample
-          sample={this.state.data}
-          listBySectionHash={(sha256) => {
-            this.setState({view: VIEW_LOADING});
-            kurasutaApi.section(sha256).then((response) => {
-              this.setState({view: VIEW_SECTION, data: response.data});
-            });
-          }}
-        />;
-        break;
-      case VIEW_SECTION:
-        component = <SampleList showSample={showSample}>{this.state.data}</SampleList>;
-        break;
-      case VIEW_LOADING:
-        component = <Loading/>;
-        break;
-      default: // VIEW_HOME
-        component = <Home showSample={showSample}/>;
-    }
     return (
-      <div>
-        <Header showHome={() => {
-          this.setState({view: VIEW_HOME})
-        }} search={showSample}/>
-        <Container>{component}</Container>
-        <ToastContainer/>
-      </div>
+      <Router>
+        <div>
+          <Header/>
+          <Container>
+            <Route exact path="/" component={Home}/>
+            <Route path="/sample/:hash" component={Sample}/>
+            <Route path="/section/:hash" component={Section}/>
+          </Container>
+          <ToastContainer/>
+        </div>
+      </Router>
     );
   }
 }

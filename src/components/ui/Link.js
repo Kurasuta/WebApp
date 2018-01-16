@@ -1,10 +1,13 @@
 import React from "react";
 import {css} from "glamor";
+import {Link as BaseLink} from "react-router-dom";
 
 export default class Link extends React.Component {
   render() {
     return (
-      <a onClick={this.props.onClick}{...style}>{this.props.children}</a>
+      <BaseLink {...style} to={this.props.to || '/'}>
+        {this.props.children}
+      </BaseLink>
     );
   }
 }
