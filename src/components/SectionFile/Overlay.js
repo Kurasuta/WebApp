@@ -1,6 +1,5 @@
 import React from "react";
 import {css} from "glamor";
-import {lightgray} from "../../color";
 import Part from "./Part";
 
 export default function Overlay({overlay}) {

@@ -4,22 +4,7 @@ import Section from "./Section";
 import Overlay from "./Overlay";
 import {css} from "glamor";
 
-/*
-"0.762252"
-overlay_sha256
-:
-"4c532831a492614f3b7e85966a6cf45c9bcc19c33bd66ccde978f0ebfccacc7b"
-overlay_size
-:
-"983040"
-overlay_ssdeep
-:
- */
-
 export default function File({sample}) {
-
-  console.log(sample);
-
   return (
     <div {...file}>
 
