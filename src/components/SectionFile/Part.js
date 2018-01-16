@@ -7,7 +7,7 @@ export default function Part({left, center, right}) {
     <div {...container}>
 
       <div {...leftStyle}>
-        <div {...name}>
+        <div {...leftInnerStyle}>
           {left()}
         </div>
       </div>
@@ -35,7 +35,7 @@ const container = css({
 });
 
 const leftStyle = css({
-  width: 40,
+  width: 30,
 });
 
 const centerStyle = css({
@@ -46,10 +46,9 @@ const rightStyle = css({
   width: 20,
 });
 
-const name = css({
-  transform: 'rotate(90deg) ',
-  transformOrigin: 'left top',
-  marginLeft: 10,
+const leftInnerStyle = css({
+  transform: 'translate(-60px) rotate(-90deg)',
+  transformOrigin: '100% 0',
   height: 20,
   width: 60,
   textAlign: 'center'
