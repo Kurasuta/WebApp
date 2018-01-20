@@ -13,7 +13,7 @@ export default class Header extends React.Component {
       <nav {...style}>
         <Container>
           <a onClick={this.props.showHome}{...css({':hover': {cursor: 'pointer'}})}><Logo/></a>
-          <NavItem onClick={this.props.showHome}>Home</NavItem>
+          <NavItem to={`/`}>Home</NavItem>
           <Search return={this.props.search}/>
         </Container>
       </nav>

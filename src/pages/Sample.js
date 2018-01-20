@@ -19,8 +19,7 @@ export default class Sample extends React.Component {
   componentDidMount() {
     const sha256 = this.props.match.params.hash;
 
-    const kurasutaApi = new KurasutaApi();
-    kurasutaApi.sample(sha256).then(response => {
+    new KurasutaApi().sample(sha256).then(response => {
       this.setState({sample: response.data});
     }).catch(error => {
       toast.error('Hash not found');
@@ -82,7 +81,6 @@ export default class Sample extends React.Component {
         <Container>
 
           <File sample={sample}/>
-
 
 
           <CrazySection title="General" data={generalData}/>

@@ -1,11 +1,14 @@
 import React from "react";
 import {green, white} from "../color";
 import {css} from "glamor";
+import {Link} from "react-router-dom";
 
 export default class NavItem extends React.Component {
   render() {
     return (
-      <a onClick={this.props.onClick} {...style}>{this.props.children}</a>
+      <Link {...style} to={this.props.to}>
+        {this.props.children}
+      </Link>
     );
   }
 }

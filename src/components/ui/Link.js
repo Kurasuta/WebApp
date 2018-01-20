@@ -5,7 +5,7 @@ import {Link as BaseLink} from "react-router-dom";
 export default class Link extends React.Component {
   render() {
     return (
-      <BaseLink {...style} to={this.props.to || '/'}>
+      <BaseLink {...style} to={this.props.to}>
         {this.props.children}
       </BaseLink>
     );

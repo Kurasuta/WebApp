@@ -1,19 +1,7 @@
 import React from "react";
-//import SampleList from "./SampleList";
-import KurasutaApi from "../KurasutaApi";
-import Loading from "../components/ui/Loading";
+import NewestHashesList from "../components/NewestHashesList";
 
 export default class Home extends React.Component {
-  state = {
-    newestSamples: null
-  };
-
-  componentDidMount() {
-    new KurasutaApi().newestSamples().then((response) => {
-      this.setState({newestSamples: response.data});
-    });
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -38,9 +26,7 @@ export default class Home extends React.Component {
           </li>
         </ul>
         <h2>Newest 10 samples</h2>
-        {!this.state.newestSamples ? <Loading/>
-          : null
-        }
+        <NewestHashesList/>
       </React.Fragment>
     );
   }
