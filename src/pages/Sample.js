@@ -48,8 +48,8 @@ export default class Sample extends React.Component {
       {'term': 'Entropy', 'definition': formatEntropy(sample.entropy)},
       {'term': 'Size', 'definition': sample.size},
       {'term': 'ssdeep', 'definition': <Hash>{sample.ssdeep}</Hash>},
-      {'term': 'Entry Point', 'definition': sample.entry_point},
-      {'term': 'Build Timestamp', 'definition': sample.build_timestamp},
+      {'term': 'String count', 'definition': sample.strings_count},
+      {'term': 'String count (len>9)', 'definition': sample.strings_count_of_length_at_least_10},
     ].filter(removeEmpty);
 
     const debugData = [
@@ -61,15 +61,6 @@ export default class Sample extends React.Component {
       {'term': 'Timestamp', 'definition': sample.debug_timestamp},
     ].filter(removeEmpty);
 
-    const otherData = [
-      {'term': 'Overlay SHA256', 'definition': <Hash>{sample.overlay_sha256}</Hash>},
-      {'term': 'Overlay Size', 'definition': sample.overlay_size},
-      {'term': 'Overlay Entropy', 'definition': sample.overlay_entropy},
-      {'term': 'Overlay ssdeep', 'definition': <Hash>{sample.overlay_ssdeep}</Hash>},
-      {'term': 'String count', 'definition': sample.strings_count},
-      {'term': 'String count (len>9)', 'definition': sample.strings_count_of_length_at_least_10},
-    ].filter(removeEmpty);
-
     // console.log(sample.code_histogram);
     // sample.first_kb
     // sample.heuristic_iocs
@@ -79,18 +70,9 @@ export default class Sample extends React.Component {
     return (
       <div style={style}>
         <Container>
-
-          <File sample={sample}/>
-
-
           <CrazySection title="General" data={generalData}/>
           <CrazySection title="Debug" data={debugData}/>
-          <CrazySection title="Other" data={otherData}/>
-          {sample.sections ? <h3>Sections</h3> : null}
-          {sample.sections ? <SectionTable
-              listBySectionHash={this.props.listBySectionHash}
-            >{sample.sections}</SectionTable>
-            : null}
+          <File sample={sample}/>
           {sample.resources ? <h3>Resources</h3> : null}
           {sample.resources ? <ResourceTable>{sample.resources}</ResourceTable> : null}
         </Container>

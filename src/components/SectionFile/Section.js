@@ -1,6 +1,7 @@
 import React from "react";
 import {css} from "glamor";
 import Part from "./Part";
+import Link from "../ui/Link";
 
 export default function Section({section}) {
   return (
@@ -9,7 +10,7 @@ export default function Section({section}) {
       center={() => {
         return (
           <React.Fragment>
-            <div>{section.hash_sha256}</div>
+            <div><Link to={'/section/' + section.hash_sha256}>{section.hash_sha256}</Link></div>
             <div>
               <ul {...list}>
                 <li>Entropy {section.entropy.toFixed(4)}</li>
@@ -22,7 +23,7 @@ export default function Section({section}) {
           </React.Fragment>
         );
       }}
-      right={() => 'R'}
+      right={() => 'S'}
     />
   );
 }

@@ -14,13 +14,13 @@ export default function Overlay({overlay}) {
               <ul {...list}>
                 <li>Entropy {overlay.entropy.toFixed(4)}</li>
                 <li>Size {overlay.size} bytes</li>
+                <li>ssdeep {overlay.ssdeep}</li>
               </ul>
-
             </div>
           </React.Fragment>
         );
       }}
-      right={() => 'R'}
+      right={() => 'O'}
     />
   );
 }

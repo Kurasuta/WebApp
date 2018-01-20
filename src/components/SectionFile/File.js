@@ -8,7 +8,7 @@ export default function File({sample}) {
   return (
     <div {...file}>
 
-      <Header/>
+      <Header sample={sample}/>
 
       {sample.sections.map(section => {
         return <Section section={section}/>
@@ -26,7 +26,9 @@ export default function File({sample}) {
 }
 
 const file = css({
-  border: '1px solid black',
+  borderLeft: '1px solid black',
+  borderRight: '1px solid black',
+  borderTop: '1px solid black',
   borderRadius: 2,
   margin: 0,
   padding: 0
