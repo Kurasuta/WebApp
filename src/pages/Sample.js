@@ -22,7 +22,7 @@ export default class Sample extends React.Component {
     new KurasutaApi().sample(sha256).then(response => {
       this.setState({sample: response.data});
     }).catch(error => {
-      toast.error('Hash not found');
+      toast.error(error.response ? error.response.data.message : 'Hash not found');
       this.props.history.replace('/');
     });
   }
