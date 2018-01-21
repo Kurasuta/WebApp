@@ -10,7 +10,7 @@ export default class People extends React.Component {
         <div>
           <h2>Thx!</h2>
           <p>Kurasuta would not exist if not for the help of many remarkable, brilliant and good people and
-            projects. Therefor we would like to thank the following alphabetically ordered entities and many more
+            projects. Therefore we would like to thank the following alphabetically ordered entities and many more
             unnamed:</p>
           <ul>
             <li><a href="http://dasmalwerk.eu">dasmalwerk.eu</a></li>
