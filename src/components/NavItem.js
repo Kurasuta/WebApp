@@ -14,7 +14,7 @@ export default class NavItem extends React.Component {
 }
 
 const style = css({
-  color: white,
+  color: white + ' !important',
   borderRadius: 3,
   lineHeight: '45px',
   display: 'inline-block',

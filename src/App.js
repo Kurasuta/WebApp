@@ -8,10 +8,12 @@ import {css} from "glamor";
 import {ToastContainer} from 'react-toastify';
 import Container from "./components/Container";
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import People from "./pages/People";
+import Footer from "./components/Footer";
 
-css.global('html, body', {
-  backgroundColor: white
-});
+css.global('html, body', {backgroundColor: white});
+css.global('a', {color: '#4990e2'});
+css.global('a:visited', {color: '#7a67e2'});
 
 export default class App extends React.Component {
   render() {
@@ -21,9 +23,11 @@ export default class App extends React.Component {
           <Header/>
           <Container>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/people" component={People}/>
             <Route path="/sample/:hash" component={Sample}/>
             <Route path="/section/:hash" component={Section}/>
           </Container>
+          <Footer/>
           <ToastContainer/>
         </div>
       </Router>

@@ -7,4 +7,5 @@ export default function Hash({children}) {
 
 const style = css({
   fontFamily: '"Ubuntu Mono", monospace',
+  wordBreak: 'break-all'
 });

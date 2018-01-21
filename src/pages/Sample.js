@@ -1,6 +1,5 @@
 import React from "react";
 import CrazySection from "../CrazySection";
-import SectionTable from "../SectionTable";
 import ResourceTable from "../ResourceTable";
 import formatEntropy from "../utils";
 import Container from "../components/Container";
