@@ -2,7 +2,7 @@ import React from "react";
 import Home from "./pages/Home"
 import Sample from "./pages/Sample.js";
 import Section from "./pages/Section"
-import {white} from "./color.js";
+import {white, blue, darkBlue} from "./color.js";
 import Header from "./components/Header";
 import {css} from "glamor";
 import {ToastContainer} from 'react-toastify';
@@ -12,8 +12,8 @@ import People from "./pages/People";
 import Footer from "./components/Footer";
 
 css.global('html, body', {backgroundColor: white});
-css.global('a', {color: '#4990e2'});
-css.global('a:visited', {color: '#7a67e2'});
+css.global('a', {color: blue});
+css.global('a:visited', {color: darkBlue});
 
 export default class App extends React.Component {
   render() {

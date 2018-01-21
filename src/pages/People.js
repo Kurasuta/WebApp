@@ -1,7 +1,6 @@
 import React from "react";
 import {css} from "glamor";
 import Email from "../components/ui/Email";
-import Link from "../components/ui/Link";
 
 export default class People extends React.Component {
   render() {
@@ -15,7 +14,9 @@ export default class People extends React.Component {
           <ul>
             <li><a href="http://dasmalwerk.eu">dasmalwerk.eu</a></li>
             <li><a href="https://david-badura.de">David Badura</a></li>
+            <li><a href="https://wallenborn.net">Lars Wallenborn</a></li>
             <li><a href="https://malshare.com">malshare.com</a></li>
+            <li><a href="https://marcsn.de/">Marc Schulz-Narres</a></li>
             <li><a href="https://maxeckhardt.com">Maximilian Eckhardt</a></li>
             <li>Mirko</li>
             <li><a href="https://nikno.de">Nikolai Nowaczyk</a></li>
