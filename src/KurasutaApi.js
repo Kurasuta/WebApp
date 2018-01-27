@@ -11,7 +11,15 @@ export default function KurasutaApi() {
     return axios.get(baseUrl + 'section/' + hash_sha256);
   };
 
-  this.newestSamples = function() {
+  this.newestSamples = function () {
     return axios.get(baseUrl + 'newest_samples');
-  }
+  };
+
+  this.buildTimeStampsByYear = function () {
+    return axios.get(baseUrl + 'stats/build_time_stamps_by_year');
+  };
+
+  this.randomSampleByYear = function (year) {
+    return axios.get(baseUrl + 'random_sample/by_year/' + year);
+  };
 };
