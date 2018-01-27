@@ -61,7 +61,7 @@ const style = css({
   '> div:not(:first-child)': {
     borderTop: '1px solid #979797',
     ' h2': {
-      fontVariant: 'small-caps',
+      textTransform: 'uppercase',
       fontSize: 16,
       marginTop: 8
     }

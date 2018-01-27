@@ -10,7 +10,6 @@ import KurasutaApi from "../KurasutaApi";
 import {toast} from "react-toastify";
 
 export default class Sample extends React.Component {
-
   state = {
     sample: null
   };
