@@ -1,5 +1,6 @@
 import React from "react";
 import NewestHashesList from "../components/NewestHashesList";
+import RandomHashesList from "../components/RandomHashesList";
 import {css} from "glamor";
 import Hash from "../components/ui/Hash";
 
@@ -40,8 +41,12 @@ export default class Home extends React.Component {
           </ul>
         </div>
         <div {...newestSamplesStyle}>
-          <h2>Newest 10 samples</h2>
+          <h2>Newest ten samples</h2>
           <NewestHashesList/>
+        </div>
+        <div {...randomSampleStyle}>
+          <h2>Ten random samples</h2>
+          <RandomHashesList/>
         </div>
       </div>
     );
@@ -55,6 +60,7 @@ const style = css({
     "bluf bluf"
     "what support"
     "how example"
+    "random random"
     "newest newest"
   `,
   gridGap: 20,
@@ -78,4 +84,7 @@ const bluf = css({
 const newestSamplesStyle = css({
   gridArea: 'newest',
   marginBottom: 100
+});
+const randomSampleStyle = css({
+  gridArea: 'random',
 });

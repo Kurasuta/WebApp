@@ -15,6 +15,10 @@ export default function KurasutaApi() {
     return axios.get(baseUrl + 'newest_samples');
   };
 
+  this.randomSamples = function (count) {
+    return axios.get(baseUrl + 'random_sample/' + count);
+  };
+
   this.buildTimeStampsByYear = function () {
     return axios.get(baseUrl + 'stats/build_time_stamps_by_year');
   };
