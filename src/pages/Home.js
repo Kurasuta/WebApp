@@ -38,6 +38,10 @@ export default class Home extends React.Component {
               of <Hash>4c532831a492614f3b7e85966a6cf45c9bcc19c33bd66ccde978f0ebfccacc7b</Hash> occurs in 3
               different samples that all have the same build time stamp.
             </li>
+            <li>
+              The .rscr section of <Hash>fd2dca2dec23ffeb2002a2b2cc03d99c385691ce35663322e396fee33d68bcaa</Hash>
+              occurs in a lot of samples with very different build timestamps.
+            </li>
           </ul>
         </div>
         <div {...newestSamplesStyle}>
