@@ -7,7 +7,6 @@ import {css} from "glamor";
 export default function File({sample}) {
   return (
     <div {...file}>
-
       <Header sample={sample}/>
 
       {sample.sections.map(section => {

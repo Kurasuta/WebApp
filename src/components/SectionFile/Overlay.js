@@ -1,6 +1,7 @@
 import React from "react";
 import {css} from "glamor";
 import Part from "./Part";
+import Hash from "../ui/Hash";
 
 export default function Overlay({overlay}) {
   return (
@@ -9,12 +10,12 @@ export default function Overlay({overlay}) {
       center={() => {
         return (
           <React.Fragment>
-            <div>{overlay.sha256}</div>
+            <div><Hash>{overlay.sha256}</Hash></div>
             <div>
               <ul {...list}>
                 <li>Entropy {overlay.entropy.toFixed(4)}</li>
                 <li>Size {overlay.size} bytes</li>
-                <li>ssdeep {overlay.ssdeep}</li>
+                <li>ssdeep <Hash>{overlay.ssdeep}</Hash></li>
               </ul>
             </div>
           </React.Fragment>

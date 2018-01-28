@@ -26,7 +26,7 @@ export default function Part({left, center, right}) {
 
 const container = css({
   padding: 10,
-  height: 60,
+  minHeight: 60,
   display: 'flex',
   borderBottom: '1px solid black',
   ':hover': {
@@ -44,6 +44,7 @@ const centerStyle = css({
 
 const rightStyle = css({
   width: 20,
+  paddingLeft: 5,
 });
 
 const leftInnerStyle = css({
