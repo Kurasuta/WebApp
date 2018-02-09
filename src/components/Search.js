@@ -9,7 +9,7 @@ class Search extends React.Component {
         if (event.keyCode === 13) {
           this.props.history.push('/sample/' + event.target.value);
         }
-      }} type="text" placeholder="SHA256"/>
+      }} type="text" placeholder="SHA256, MD5 or SHA1"/>
     );
   }
 }
