@@ -23,6 +23,10 @@ export default function KurasutaApi() {
     return axios.get(baseUrl + 'stats/build_time_stamps_by_year');
   };
 
+  this.processingsByMonth = function () {
+    return axios.get(baseUrl + 'stats/processings_per_month');
+  };
+
   this.randomSampleByYear = function (year) {
     return axios.get(baseUrl + 'random_sample/by_year/' + year);
   };
