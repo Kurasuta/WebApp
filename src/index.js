@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
+import './style/index.css';
+import './style/tabs.css';
 
 ReactDOM.render(
   <App />,
