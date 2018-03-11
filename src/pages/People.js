@@ -19,7 +19,7 @@ export default class People extends React.Component {
             <li><a href="https://marcsn.de/">Marc Schulz-Narres</a></li>
             <li><a href="https://maxeckhardt.com">Maximilian Eckhardt</a></li>
             <li>Mirko</li>
-            <li><a href="https://nikno.de">Nikolai Nowaczyk</a></li>
+            <li><a href="https://nikno.de">Nikolai Nowaczyk</a> (Lead Data Scientist)</li>
             <li><a href="https://github.com/ytisf/theZoo">theZoo</a></li>
             <li><a href="https://tobias.goedderz.info">Tobias Gödderz</a></li>
             <li><a href="https://virusshare.com/">VirusShare</a></li>

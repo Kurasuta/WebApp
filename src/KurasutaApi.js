@@ -30,4 +30,8 @@ export default function KurasutaApi() {
   this.randomSampleByYear = function (year) {
     return axios.get(baseUrl + 'random_sample/by_year/' + year);
   };
+
+  this.count = function (entity) {
+    return axios.get(baseUrl + 'stats/count/' + entity);
+  };
 };

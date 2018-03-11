@@ -3,8 +3,18 @@ import NewestHashesList from "../components/NewestHashesList";
 import RandomHashesList from "../components/RandomHashesList";
 import {css} from "glamor";
 import Hash from "../components/ui/Hash";
+import KurasutaApi from "../KurasutaApi";
 
 export default class Home extends React.Component {
+  state = {
+    sampleCount: null
+  };
+
+  componentDidMount() {
+    new KurasutaApi().count('sample').then((result) => {
+      this.setState({sampleCount: result.data.sample})
+    });
+  }
   render() {
     return (
       <div {...style}>
@@ -14,7 +24,9 @@ export default class Home extends React.Component {
           <p>The core/first use-case of this project is straight forward: hash sections of as many PE files as
             possible and make pivoting possible. This website is a first client consuming a REST-like API to the
             Kurasuta database. That database contains extracted info on as many PE files as we could get our hands on so
-            far. As of end of 2017, we processed half a million samples.</p>
+            far.</p>
+          <p>We already processed around {this.state.sampleCount === null
+            ? <img src="/loader.gif" width={16} height={16}/> : this.state.sampleCount} samples.</p>
         </div>
         <div>
           <h2>Support us</h2>
