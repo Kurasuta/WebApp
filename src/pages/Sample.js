@@ -8,6 +8,7 @@ import Loading from "../components/ui/Loading";
 import File from "../components/SectionFile/File";
 import KurasutaApi from "../KurasutaApi";
 import {toast} from "react-toastify";
+import {Sigma, RandomizeNodePositions, RelativeSize} from 'react-sigma';
 
 export default class Sample extends React.Component {
   state = {
@@ -59,12 +60,23 @@ export default class Sample extends React.Component {
       {'term': 'Timestamp', 'definition': sample.debug_timestamp},
     ].filter(removeEmpty);
 
+    let graphData = {
+      nodes: [{id: 'root', label: sample.hash_sha256}],
+      edges: []
+    };
+    sample.sections.map(section => {
+      let id = 'section_' + section.hash_sha256;
+      graphData.nodes.push({id: id, label: section.hash_sha256})
+      graphData.edges.push({id: 'root_' + id, source: 'root', target: id, label: 'seciton of'})
+    });
+
     // console.log(sample.code_histogram);
     // sample.first_kb
     // sample.heuristic_iocs
     const style = {
       padding: 10,
     };
+
     return (
       <div style={style}>
         <Container>
@@ -74,6 +86,10 @@ export default class Sample extends React.Component {
           {sample.resources ? <h3>Resources</h3> : null}
           {sample.resources ? <ResourceTable>{sample.resources}</ResourceTable> : null}
         </Container>
+        <Sigma graph={this.state.graphData} settings={{drawEdges: true, clone: false}}>
+          <RelativeSize initialSize={15}/>
+          <RandomizeNodePositions/>
+        </Sigma>
       </div>
     );
   }
