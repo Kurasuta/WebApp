@@ -12,6 +12,7 @@ export default class People extends React.Component {
             projects. Therefore we would like to thank the following alphabetically ordered entities and many more
             unnamed:</p>
           <ul>
+            <li><a href="https://github.com/amueller/word_cloud">Andreas Müller</a></li>
             <li><a href="http://dasmalwerk.eu">dasmalwerk.eu</a></li>
             <li><a href="https://david-badura.de">David Badura</a></li>
             <li><a href="https://wallenborn.net">Lars Wallenborn</a></li>
