@@ -8,7 +8,7 @@ export default class NewestHashesList extends React.Component {
   state = {samples: null};
 
   componentDidMount() {
-    new KurasutaApi().newestSamples().then(response => {
+    new KurasutaApi().newestSamples(10).then(response => {
       this.setState({samples: response.data});
     }).catch(error => {
       toast.error('API not reachable');

@@ -64,11 +64,13 @@ export default class Sample extends React.Component {
       nodes: [{id: 'root', label: sample.hash_sha256}],
       edges: []
     };
-    sample.sections.map(section => {
-      let id = 'section_' + section.hash_sha256;
-      graphData.nodes.push({id: id, label: section.hash_sha256})
-      graphData.edges.push({id: 'root_' + id, source: 'root', target: id, label: 'seciton of'})
-    });
+    if (sample.sections) {
+      sample.sections.map(section => {
+        let id = 'section_' + section.hash_sha256;
+        graphData.nodes.push({id: id, label: section.hash_sha256});
+        graphData.edges.push({id: 'root_' + id, source: 'root', target: id, label: 'seciton of'});
+      });
+    }
 
     // console.log(sample.code_histogram);
     // sample.first_kb

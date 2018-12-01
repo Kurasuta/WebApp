@@ -7,14 +7,21 @@ import KurasutaApi from "../KurasutaApi";
 
 export default class Home extends React.Component {
   state = {
-    sampleCount: null
+    sampleCount: null,
+    sectionCount: null,
+    resourceCount: null,
   };
 
   componentDidMount() {
-    new KurasutaApi().count('sample').then((result) => {
-      this.setState({sampleCount: result.data.sample})
+    new KurasutaApi().count().then((result) => {
+      this.setState({
+        sampleCount: result.data.samples,
+        sectionCount: result.data.sections,
+        resourceCount: result.data.resources,
+      });
     });
   }
+
   render() {
     return (
       <div {...style}>
@@ -26,7 +33,11 @@ export default class Home extends React.Component {
             Kurasuta database. That database contains extracted info on as many PE files as we could get our hands on so
             far.</p>
           <p>We already processed around {this.state.sampleCount === null
-            ? <img src="/loader.gif" width={16} height={16}/> : this.state.sampleCount} samples.</p>
+            ? <img src="/loader.gif" width={16} height={16}/> : this.state.sampleCount} samples. In total those samples
+            contain {this.state.sectionCount === null
+              ? <img src="/loader.gif" width={16} height={16}/> : this.state.sectionCount} sections
+            and {this.state.resourceCount === null
+              ? <img src="/loader.gif" width={16} height={16}/> : this.state.resourceCount} resources.</p>
         </div>
         <div>
           <h2>Support us</h2>

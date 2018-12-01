@@ -9,9 +9,9 @@ export default function File({sample}) {
     <div {...file}>
       <Header sample={sample}/>
 
-      {sample.sections.map(section => {
+      {sample.sections ? sample.sections.map(section => {
         return <Section section={section}/>
-      })}
+      }) : ''}
 
       <Overlay overlay={{
         entropy: sample.overlay_entropy || 0,

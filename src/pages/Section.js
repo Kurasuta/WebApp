@@ -8,7 +8,7 @@ import Loading from "../components/ui/Loading";
 export default class Section extends React.Component {
 
   state = {
-    samples: null
+    section: null
   };
 
   componentDidMount() {
@@ -17,19 +17,19 @@ export default class Section extends React.Component {
     const kurasutaApi = new KurasutaApi();
 
     kurasutaApi.section(sha256).then((response) => {
-      this.setState({samples: response.data});
+      this.setState({section: response.data});
     });
   }
 
   render() {
-    if (!this.state.samples) {
+    if (!this.state.section) {
       return <Loading/>
     }
 
     return (
       <Table headers={{'Hash': 'left', 'Build Time Stamp': 'left'}}>
         {
-          this.state.samples.map((sample) => {
+          this.state.section.samples.map((sample) => {
             return [
               <Link to={`/sample/` + sample.hash_sha256}>
                 <Hash>{sample.hash_sha256}</Hash>

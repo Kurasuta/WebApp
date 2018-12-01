@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 
 export default function KurasutaApi() {
-  const baseUrl = (window.location.hostname === 'localhost' ? 'http://localhost:3001/p/kurasuta.de' : '') + '/api/';
+  const baseUrl = 'https://arangodb.kurasuta.de/_db/kurasuta/frontend/';
 
   this.sample = function (hash_sha256) {
     return axios.get(baseUrl + 'sample/' + hash_sha256);
@@ -11,12 +11,12 @@ export default function KurasutaApi() {
     return axios.get(baseUrl + 'section/' + hash_sha256);
   };
 
-  this.newestSamples = function () {
-    return axios.get(baseUrl + 'newest_samples');
+  this.newestSamples = function (count) {
+    return axios.get(baseUrl + 'newest/sample/' + count);
   };
 
   this.randomSamples = function (count) {
-    return axios.get(baseUrl + 'random_sample/' + count);
+    return axios.get(baseUrl + 'random/sample/' + count);
   };
 
   this.buildTimeStampsByYear = function () {
@@ -28,10 +28,10 @@ export default function KurasutaApi() {
   };
 
   this.randomSampleByYear = function (year) {
-    return axios.get(baseUrl + 'random_sample/by_year/' + year);
+    return axios.get(baseUrl + 'random/sample_by_year/' + year);
   };
 
-  this.count = function (entity) {
-    return axios.get(baseUrl + 'stats/count/' + entity);
+  this.count = function () {
+    return axios.get(baseUrl + 'count');
   };
 };
