@@ -9,3 +9,9 @@ npm install -g yarn
 yarn install
 yarn start
 ```
+
+## Update Node Modules
+
+```
+yarn upgrade
+```
