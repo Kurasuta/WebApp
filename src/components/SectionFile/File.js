@@ -6,7 +6,14 @@ import {css} from "glamor";
 
 export default function File({sample}) {
     return (
-        <div {...file}>
+        <div {...css({
+            borderLeft: '1px solid black',
+            borderRight: '1px solid black',
+            borderTop: '1px solid black',
+            borderRadius: 2,
+            margin: 0,
+            padding: 0
+        })}>
             <Header sample={sample}/>
 
             {sample.sections ? sample.sections.map(section => {
@@ -23,13 +30,3 @@ export default function File({sample}) {
         </div>
     );
 }
-
-const file = css({
-    borderLeft: '1px solid black',
-    borderRight: '1px solid black',
-    borderTop: '1px solid black',
-    borderRadius: 2,
-    margin: 0,
-    padding: 0
-});
-

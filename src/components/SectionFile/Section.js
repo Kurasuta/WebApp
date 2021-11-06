@@ -19,7 +19,16 @@ export default function Section({section}) {
                     <React.Fragment>
                         <div>{hash}</div>
                         <div>
-                            <ul {...list}>
+                            <ul {...css({
+                                padding: 0,
+                                margin: '10px 0 0 0',
+                                listStyle: 'none',
+                                '> li': {
+                                    float: 'left',
+                                    marginRight: 15,
+                                    fontSize: '0.8em'
+                                }
+                            })}>
                                 <li>Entropy {section.entropy.toFixed(4)}</li>
                                 <li>VAddr 0x{section.virtual_address.toString(16)}</li>
                                 <li>VSize {section.virtual_size} bytes</li>
@@ -33,15 +42,3 @@ export default function Section({section}) {
         />
     );
 }
-
-const list = css({
-    padding: 0,
-    margin: '10px 0 0 0',
-    listStyle: 'none',
-    '> li': {
-        float: 'left',
-        marginRight: 15,
-        fontSize: '0.8em'
-    }
-});
-

@@ -1,41 +1,39 @@
 import React from "react";
 import Section from "./components/ui/Section";
 
-export default class CrazySection extends React.Component {
-    createDefinitionListDefinition(definition) {
-        const style = {margin: 0, padding: '0 0 0 0'};
-        if (Array.isArray(definition)) {
-            return definition.map((val) => {
-                return <dd style={style}>{val}</dd>
-            })
-        }
-
-        return <dd style={style}>{definition}</dd>
+function createDefinitionListDefinition(definition) {
+    const style = {margin: 0, padding: '0 0 0 0'};
+    if (Array.isArray(definition)) {
+        return definition.map((val) => {
+            return <dd style={style}>{val}</dd>
+        })
     }
 
-    createDefinitionListFragment(term, definition) {
-        const style = {fontWeight: 'bold', paddingTop: '3px'};
+    return <dd style={style}>{definition}</dd>
+}
 
-        return [
-            <dt style={style}>{term}</dt>,
-            this.createDefinitionListDefinition(definition)
-        ];
-    }
+function createDefinitionListFragment(term, definition) {
+    const style = {fontWeight: 'bold', paddingTop: '3px'};
 
-    createDefinitionList(data) {
-        const style = {margin: 0, padding: 5};
-        return <dl style={style}>
-            {data.map((row) => {
-                return this.createDefinitionListFragment(row['term'], row['definition'])
-            })}
-        </dl>
-    }
+    return [
+        <dt style={style}>{term}</dt>,
+        createDefinitionListDefinition(definition)
+    ];
+}
 
-    render() {
-        return this.props.data.length === 0 ? null : (
-            <Section title={this.props.title}>
-                {this.createDefinitionList(this.props.data)}
-            </Section>
-        );
-    }
+function createDefinitionList(data) {
+    const style = {margin: 0, padding: 5};
+    return <dl style={style}>
+        {data.map((row) => {
+            return createDefinitionListFragment(row['term'], row['definition'])
+        })}
+    </dl>
+}
+
+export default function CrazySection(props) {
+    return props.data.length === 0 ? null : (
+        <Section title={props.title}>
+            {createDefinitionList(props.data)}
+        </Section>
+    );
 }

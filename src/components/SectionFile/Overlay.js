@@ -12,7 +12,16 @@ export default function Overlay({overlay}) {
                     <React.Fragment>
                         <div><Hash>{overlay.sha256}</Hash></div>
                         <div>
-                            <ul {...list}>
+                            <ul {...css({
+                                padding: 0,
+                                margin: '10px 0 0 0',
+                                listStyle: 'none',
+                                '> li': {
+                                    float: 'left',
+                                    marginRight: 15,
+                                    fontSize: '0.8em'
+                                }
+                            })}>
                                 <li>Entropy {overlay.entropy.toFixed(4)}</li>
                                 <li>Size {overlay.size} bytes</li>
                                 <li>ssdeep <Hash>{overlay.ssdeep}</Hash></li>
@@ -25,14 +34,3 @@ export default function Overlay({overlay}) {
         />
     );
 }
-
-const list = css({
-    padding: 0,
-    margin: '10px 0 0 0',
-    listStyle: 'none',
-    '> li': {
-        float: 'left',
-        marginRight: 15,
-        fontSize: '0.8em'
-    }
-});

@@ -1,5 +1,4 @@
 import React from "react";
-import {css} from "glamor";
 import Loading from "./Loading";
 import Link from "./Link";
 import Hash from "./Hash";
@@ -22,8 +21,3 @@ export default function SampleList({children}) {
             </Table>
     );
 }
-
-const style = css({
-    fontSize: 10,
-    verticalAlign: 'top'
-});

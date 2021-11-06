@@ -16,7 +16,7 @@ export default function Home() {
             setSectionCount(result.data.sections);
             setResourceCount(result.data.resources);
         });
-    });
+    }, []);
 
     return (
         <div {...(css({
@@ -44,7 +44,8 @@ export default function Home() {
                 fontSize: 48,
                 margin: '40px 0',
                 width: 593
-            }))}>Try to say the English word Cluster with a strong Japanese accent.</div>
+            }))}>Try to say the English word Cluster with a strong Japanese accent.
+            </div>
             <div>
                 <h2>What is Kurasuta?</h2>
                 <p>The core/first use-case of this project is straight forward: hash sections of as many PE files as

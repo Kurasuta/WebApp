@@ -4,55 +4,32 @@ import {lightgray} from "../../color";
 
 export default function Part({left, center, right}) {
     return (
-        <div {...container}>
-
-            <div {...leftStyle}>
-                <div {...leftInnerStyle}>
+        <div {...css({
+            padding: 10,
+            minHeight: 60,
+            display: 'flex',
+            borderBottom: '1px solid black',
+            ':hover': {
+                backgroundColor: lightgray
+            }
+        })}>
+            <div {...css({width: 30})}>
+                <div {...css({
+                    transform: 'translate(-60px) rotate(-90deg)',
+                    transformOrigin: '100% 0',
+                    height: 20,
+                    width: 60,
+                    textAlign: 'center'
+                })}>
                     {left()}
                 </div>
             </div>
-
-            <div {...centerStyle}>
+            <div {...css({flexGrow: 10})}>
                 {center()}
             </div>
-
-            <div {...rightStyle}>
+            <div {...css({width: 20, paddingLeft: 5})}>
                 {right()}
             </div>
-
         </div>
     );
 }
-
-const container = css({
-    padding: 10,
-    minHeight: 60,
-    display: 'flex',
-    borderBottom: '1px solid black',
-    ':hover': {
-        backgroundColor: lightgray
-    }
-});
-
-const leftStyle = css({
-    width: 30,
-});
-
-const centerStyle = css({
-    flexGrow: 10
-});
-
-const rightStyle = css({
-    width: 20,
-    paddingLeft: 5,
-});
-
-const leftInnerStyle = css({
-    transform: 'translate(-60px) rotate(-90deg)',
-    transformOrigin: '100% 0',
-    height: 20,
-    width: 60,
-    textAlign: 'center'
-});
-
-

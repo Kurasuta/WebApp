@@ -2,10 +2,8 @@ import React from "react";
 import {css} from "glamor";
 
 export default function Hash({children}) {
-    return <span {...style}>{children}</span>
+    return <span {...css({
+        fontFamily: '"Ubuntu Mono", monospace',
+        wordBreak: 'break-all'
+    })}>{children}</span>
 };
-
-const style = css({
-    fontFamily: '"Ubuntu Mono", monospace',
-    wordBreak: 'break-all'
-});

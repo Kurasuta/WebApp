@@ -4,8 +4,20 @@ import {lightgray} from "../../color";
 
 export default function Header({sample}) {
     return (
-        <div {...container}>
-            <ul {...list}>
+        <div {...css({
+            padding: 10,
+            backgroundColor: lightgray
+        })}>
+            <ul {...css({
+                padding: 0,
+                margin: '10px 0 0 0',
+                listStyle: 'none',
+                '> li': {
+                    float: 'left',
+                    marginRight: 15,
+                    fontSize: '0.8em'
+                }
+            })}>
                 <li>Entry Point: 0x{sample.entry_point.toString(16)}<br/></li>
                 <li>Build Timestamp: {sample.build_timestamp}</li>
             </ul>
@@ -13,19 +25,3 @@ export default function Header({sample}) {
         </div>
     );
 }
-
-const container = css({
-    padding: 10,
-    backgroundColor: lightgray
-});
-
-const list = css({
-    padding: 0,
-    margin: '10px 0 0 0',
-    listStyle: 'none',
-    '> li': {
-        float: 'left',
-        marginRight: 15,
-        fontSize: '0.8em'
-    }
-});

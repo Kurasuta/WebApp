@@ -22,7 +22,7 @@ export default function Sample() {
             toast.error(error.response ? error.response.data.message : 'Hash not found');
             // this.props.history.replace('/');
         });
-    });
+    }, []);
 
     if (!sample) {
         return <Loading/>

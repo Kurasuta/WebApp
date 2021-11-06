@@ -15,7 +15,7 @@ export default function Section() {
         kurasutaApi.section(params.hash).then((response) => {
             setSection(response.data)
         });
-    });
+    }, []);
     if (!section) {
         return <Loading/>
     }

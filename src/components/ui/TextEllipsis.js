@@ -3,15 +3,13 @@ import {css} from "glamor";
 
 export default function TextEllipsis({children}) {
     return (
-        <div {...style}>
+        <div {...css({
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            width: '100px'
+        })}>
             {children}
         </div>
     );
 }
-
-const style = css({
-    textOverflow: 'ellipsis',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    width: '100px'
-});

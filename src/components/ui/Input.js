@@ -1,16 +1,12 @@
 import React from "react";
 import {css} from "glamor";
 
-export default class Input extends React.Component {
-    render() {
-        return (
-            <input {...style} {...this.props}/>
-        );
-    }
+export default function Input(props) {
+    return (
+        <input {...css({
+            padding: 10,
+            borderRadius: 2,
+            borderWidth: 0,
+        })} {...props}/>
+    );
 }
-
-const style = css({
-    padding: 10,
-    borderRadius: 2,
-    borderWidth: 0,
-});
