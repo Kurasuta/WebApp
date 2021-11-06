@@ -17,7 +17,7 @@ export default function File({sample}) {
             <Header sample={sample}/>
 
             {sample.sections ? sample.sections.map(section => {
-                return <Section section={section}/>
+                return <Section key={section.hash_sha256} section={section}/>
             }) : ''}
 
             <Overlay overlay={{

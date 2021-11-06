@@ -23,7 +23,7 @@ export default function ResourceTable(props) {
             'Entropy': 'left',
         }}>
             {
-                props.children.map((resource) => {
+                props.children.map(resource => {
                     return [
                         <Hash>{resource.hash_sha256}</Hash>,
                         combineStrAndId(resource.type_str, resource.type_id),
