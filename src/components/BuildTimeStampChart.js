@@ -18,7 +18,7 @@ export default class BuildTimeStampChart extends React.Component {
 
   forwardToRandomSampleIn(year) {
     this.kurasutaApi.randomSampleByYear(year).then(response => {
-      this.props.history.push('/sample/' + response.data.hash_sha256);
+      // this.props.history.push('/sample/' + response.data.hash_sha256);
     }).catch(error => {
       toast.error(error.response ? error.response.data.message : 'API request failed');
     });

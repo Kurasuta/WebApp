@@ -1,44 +1,38 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import Table from "../components/ui/Table";
 import Hash from "../components/ui/Hash";
 import Link from "../components/ui/Link";
 import KurasutaApi from "../KurasutaApi";
 import Loading from "../components/ui/Loading";
 
-export default class Section extends React.Component {
-
-  state = {
-    section: null
-  };
-
-  componentDidMount() {
-    const sha256 = this.props.match.params.hash;
-
+export default function Section() {
+  const [section, setSection] = useState(null);
+  const params = useParams();
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
     const kurasutaApi = new KurasutaApi();
-
-    kurasutaApi.section(sha256).then((response) => {
-      this.setState({section: response.data});
+    kurasutaApi.section(params.hash).then((response) => {
+      setSection(response.data)
     });
+  });
+  if (! section) {
+    return <Loading/>
   }
 
-  render() {
-    if (!this.state.section) {
-      return <Loading/>
-    }
 
-    return (
-      <Table headers={{'Hash': 'left', 'Build Time Stamp': 'left'}}>
-        {
-          this.state.section.samples.map((sample) => {
-            return [
-              <Link to={`/sample/` + sample.hash_sha256}>
-                <Hash>{sample.hash_sha256}</Hash>
-              </Link>,
-              <div>{sample.build_timestamp}</div>
-            ]
-          })
-        }
-      </Table>
-    );
-  }
+  return (
+    <Table headers={{'Hash': 'left', 'Build Time Stamp': 'left'}}>
+      {
+        section.samples.map(sample => {
+          return [
+            <Link to={`/sample/` + sample.hash_sha256}>
+              <Hash>{sample.hash_sha256}</Hash>
+            </Link>,
+            <div>{sample.build_timestamp}</div>
+          ]
+        })
+      }
+    </Table>
+  );
 }

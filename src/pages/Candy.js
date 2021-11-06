@@ -1,10 +1,9 @@
 import React from "react";
-import {withRouter} from 'react-router';
 import BuildTimeStampChart from "../components/BuildTimeStampChart";
 import ProcessingByMonthChart from "../components/ProcessingByMonthChart";
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-class Candy extends React.Component {
+export default class Candy extends React.Component {
   render() {
     return <Tabs>
       <TabList>
@@ -35,5 +34,3 @@ class Candy extends React.Component {
     </Tabs>;
   }
 }
-
-export default withRouter(Candy);

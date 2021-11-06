@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import {css} from "glamor";
 import {ToastContainer} from 'react-toastify';
 import Container from "./components/Container";
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import People from "./pages/People";
 import Footer from "./components/Footer";
 import Candy from "./pages/Candy";
@@ -25,21 +25,27 @@ css.global('.c3-tooltip-container', {
 export default class App extends React.Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div>
           <Header/>
           <Container>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/people" component={People}/>
-            <Route exact path="/candy" component={Candy}/>
-            <Route path="/sample/:hash" component={Sample}/>
-            <Route path="/section/:hash" component={Section}/>
+              <Routes>
+                  <Route exact path="/" element={<Home/>}/>
+                  <Route exact path="/people" element={<People/>}/>
+                  <Route exact path="/candy" element={<Candy/>}/>
+                  <Route path="sample">
+                      <Route path=":hash" element={<Sample/>}/>
+                  </Route>
+                  <Route path="section">
+                      <Route path=":hash" element={<Section/>}/>
+                  </Route>
+              </Routes>
           </Container>
           <Footer/>
           <ToastContainer/>
           <ReactTooltip/>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
