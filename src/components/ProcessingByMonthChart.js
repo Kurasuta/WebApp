@@ -16,8 +16,8 @@ export default function ProcessingByMonthChart() {
     } else {
         const months = [];
         const sampleCounts = [];
-        Object.keys(processingsByMonth).sort().map((year) => {
-            Object.keys(processingsByMonth[year]).sort().map((month) => {
+        Object.keys(processingsByMonth).sort().forEach(year => {
+            Object.keys(processingsByMonth[year]).sort().forEach(month => {
                 let key = year + '-' + (month < 10 ? '0' : '') + month;
                 months.push(key);
                 sampleCounts.push(processingsByMonth[year][month]);

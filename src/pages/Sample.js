@@ -59,7 +59,7 @@ export default function Sample() {
         edges: []
     };
     if (sample.sections) {
-        sample.sections.map(section => {
+        sample.sections.forEach(section => {
             let id = 'section_' + section.hash_sha256;
             graphData.nodes.push({id: id, label: section.hash_sha256});
             graphData.edges.push({id: 'root_' + id, source: 'root', target: id, label: 'seciton of'});

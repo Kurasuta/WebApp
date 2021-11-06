@@ -23,12 +23,12 @@ export default function Home() {
             display: 'grid',
             gridTemplateColumns: '470px 470px',
             gridTemplateAreas: `
-    "bluf bluf"
-    "what support"
-    "how example"
-    "random random"
-    "newest newest"
-  `,
+                "bluf bluf"
+                "what support"
+                "how example"
+                "random random"
+                "newest newest"
+            `,
             gridGap: 20,
             '> div:not(:first-child)': {
                 borderTop: '1px solid #979797',
@@ -55,12 +55,12 @@ export default function Home() {
                     hands on so
                     far.</p>
                 <p>We already processed around {sampleCount === null
-                    ? <img src="/loader.gif" width={16} height={16}/> : sampleCount} samples. In total
+                    ? <img alt="loading" src="/loader.gif" width={16} height={16}/> : sampleCount} samples. In total
                     those samples
                     contain {sectionCount === null
-                        ? <img src="/loader.gif" width={16} height={16}/> : sectionCount} sections
+                        ? <img alt="loading" src="/loader.gif" width={16} height={16}/> : sectionCount} sections
                     and {resourceCount === null
-                        ? <img src="/loader.gif" width={16} height={16}/> : resourceCount} resources.</p>
+                        ? <img alt="loading" src="/loader.gif" width={16} height={16}/> : resourceCount} resources.</p>
             </div>
             <div>
                 <h2>Support us</h2>

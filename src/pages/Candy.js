@@ -25,9 +25,9 @@ export default function Candy() {
                     <Tab>Sections</Tab>
                     <Tab>Resources</Tab>
                 </TabList>
-                <TabPanel><img src="/image/pdb-paths.png" width="100%"/></TabPanel>
-                <TabPanel><img src="/image/section-names.png" width="100%"/></TabPanel>
-                <TabPanel><img src="/image/resource-names.png" width="100%"/></TabPanel>
+                <TabPanel><img alt="Wordcloud: PDB Paths" src="/image/pdb-paths.png" width="100%"/></TabPanel>
+                <TabPanel><img alt="Wordcloud: Section Names" src="/image/section-names.png" width="100%"/></TabPanel>
+                <TabPanel><img alt="Wordcloud: Resource Names" src="/image/resource-names.png" width="100%"/></TabPanel>
             </Tabs>
         </TabPanel>
     </Tabs>;
