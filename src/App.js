@@ -17,35 +17,35 @@ css.global('html, body', {backgroundColor: white});
 css.global('a', {color: blue});
 css.global('a:visited', {color: darkBlue});
 css.global('.c3-tooltip-container', {
-  backgroundColor: white,
-  border: '1px solid ' + black,
-  borderRadius: 4
+    backgroundColor: white,
+    border: '1px solid ' + black,
+    borderRadius: 4
 });
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Header/>
-          <Container>
-              <Routes>
-                  <Route exact path="/" element={<Home/>}/>
-                  <Route exact path="/people" element={<People/>}/>
-                  <Route exact path="/candy" element={<Candy/>}/>
-                  <Route path="sample">
-                      <Route path=":hash" element={<Sample/>}/>
-                  </Route>
-                  <Route path="section">
-                      <Route path=":hash" element={<Section/>}/>
-                  </Route>
-              </Routes>
-          </Container>
-          <Footer/>
-          <ToastContainer/>
-          <ReactTooltip/>
-        </div>
-      </BrowserRouter>
-    );
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <Header/>
+                    <Container>
+                        <Routes>
+                            <Route exact path="/" element={<Home/>}/>
+                            <Route exact path="/people" element={<People/>}/>
+                            <Route exact path="/candy" element={<Candy/>}/>
+                            <Route path="sample">
+                                <Route path=":hash" element={<Sample/>}/>
+                            </Route>
+                            <Route path="section">
+                                <Route path=":hash" element={<Section/>}/>
+                            </Route>
+                        </Routes>
+                    </Container>
+                    <Footer/>
+                    <ToastContainer/>
+                    <ReactTooltip/>
+                </div>
+            </BrowserRouter>
+        );
+    }
 }

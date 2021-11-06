@@ -5,17 +5,17 @@ import SampleList from "./ui/SampleList";
 
 export default class NewestHashesList extends React.Component {
 
-  state = {samples: null};
+    state = {samples: null};
 
-  componentDidMount() {
-    new KurasutaApi().newestSamples(10).then(response => {
-      this.setState({samples: response.data});
-    }).catch(error => {
-      toast.error('API not reachable');
-    });
-  }
+    componentDidMount() {
+        new KurasutaApi().newestSamples(10).then(response => {
+            this.setState({samples: response.data});
+        }).catch(error => {
+            toast.error('API not reachable');
+        });
+    }
 
-  render() {
-    return <SampleList>{this.state.samples}</SampleList>;
-  }
+    render() {
+        return <SampleList>{this.state.samples}</SampleList>;
+    }
 }

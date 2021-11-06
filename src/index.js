@@ -5,6 +5,6 @@ import './style/index.css';
 import './style/tabs.css';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    <App/>,
+    document.getElementById('root')
 );
